@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  --very-dark-gray: hsl(0, 0%, 17%);
+  --dark-gray: hsl(0, 0%, 59%);
+  --white: #ffffff;
+}
+
+.container-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-grid {
+  height: 35vh;
+  background: url(/images/pattern-bg.png) no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  padding-top: 1%;
+}
+
+.header-text {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.bottom-grid {
+  height: 65vh;
+}
