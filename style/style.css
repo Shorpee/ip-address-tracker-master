@@ -32,8 +32,49 @@
 .header-text {
   color: var(--white);
   font-weight: 500;
+  margin-bottom: 40px;
+}
+
+input.search-box {
+  display: inline-block;
+  position: relative;
+  width: 30%;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+  font-family: "Rubik", sans-serif;
+  color: var(--very-dark-gray);
+  font-size: 0.8rem;
+  font-weight: 400;
+  border-radius: 10px;
+}
+
+input.search-box:focus {
+  outline: none;
+}
+
+button.search-btn {
+  /* display: block; */
+  background: var(--very-dark-gray);
+  border: none;
+  padding: 15px;
+  border-radius: 0 10px 10px 0;
+  position: absolute;
+  margin-left: -2%;
+  /* right: 10px; */
+  /* top: 0; */
+  
+}
+
+button.search-btn:focus {
+  outline: none;
+}
+
+button.search-btn:hover {
+  background: var(--dark-gray);
 }
 
 .bottom-grid {
-  height: 65vh;
+  height: calc(100% - 35vh);
 }
