@@ -27,6 +27,7 @@
   background-size: cover;
   text-align: center;
   padding-top: 1%;
+  position: relative;
 }
 
 .header-text {
@@ -35,9 +36,13 @@
   margin-bottom: 40px;
 }
 
+.search-section {
+  position: relative;
+  margin-bottom: 50px;
+}
+
 input.search-box {
   display: inline-block;
-  position: relative;
   width: 30%;
   padding: 15px;
   border: none;
@@ -62,9 +67,48 @@ button.search-btn {
   border-radius: 0 10px 10px 0;
   position: absolute;
   margin-left: -2%;
+  cursor: pointer;
   /* right: 10px; */
   /* top: 0; */
-  
+}
+
+.mid-section {
+  display: flex;
+  width: 75%;
+  background: var(--white);
+  justify-content: space-around;
+  /* margin: 0 auto; */
+  border-radius: 10px;
+  padding: 25px;
+  z-index: 5000;
+  position: absolute;
+  bottom: -14%;
+  left: 12%;
+  box-shadow: -1px 2px 2px -4px rgba(196, 196, 196, 1);
+}
+
+.vertical-line {
+    height: auto;
+    width: 1px;
+    background: var(--dark-gray);
+}
+
+.info-field {
+  text-align: left;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--dark-gray);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.output {
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
 button.search-btn:focus {
@@ -77,4 +121,8 @@ button.search-btn:hover {
 
 .bottom-grid {
   height: calc(100% - 35vh);
+}
+
+#mapid {
+  height: 65vh;
 }

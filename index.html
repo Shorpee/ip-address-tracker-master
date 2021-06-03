@@ -1,33 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
   <link rel="stylesheet" href="./style/style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
   <title>Frontend Mentor | IP Address Tracker</title>
 </head>
+
 <body>
   <div class="container-grid">
     <div class="top-grid">
       <h1 class="header-text">IP Address Tracker</h1>
-      <form action="">
-        <input type="text" name="ip-address" id="ip-address-input" class="search-box" placeholder="Search for any IP address or domain">
+      <form action="" class="search-section">
+        <input type="text" name="ip-address" id="ip-address-input" class="search-box"
+          placeholder="Search for any IP address or domain">
         <button type="submit" class="search-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14"><path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+            <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
+          </svg>
         </button>
       </form>
+      <div class="mid-section">
+        <div class="info-field">
+          <p class="label">IP Address</p>
+          <p class="output">Abrayam</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="info-field">
+          <p class="label">Location</p>
+          <p class="output">Abrayam</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="info-field">
+          <p class="label">Timezone</p>
+          <p class="output">UTC
+            <!-- add offset value dynamically using the API -->
+          </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="info-field">
+          <p class="label">ISP</p>
+          <p class="output">Abrayam</p>
+        </div>
+      </div>
     </div>
-    <div class="mid-section">
-      IP Address
-      Location
-      Timezone
-        UTC <!-- add offset value dynamically using the API -->
-      ISP
+    <div class="bottom-grid">
+      <div id="mapid"></div>
     </div>
-    <div class="bottom-grid"></div>
-</div>
-  
+  </div>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <script src="/script.js"></script>
 </body>
+
 </html>
