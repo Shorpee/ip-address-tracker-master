@@ -20,7 +20,7 @@
       <form action="" class="search-section">
         <input type="text" name="ip-address" id="ip-address-input" class="search-box"
           placeholder="Search for any IP address or domain">
-        <button type="submit" class="search-btn">
+        <button type="button" class="search-btn" onclick="getIpAddress();">
           <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
             <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
           </svg>
@@ -29,24 +29,24 @@
       <div class="mid-section">
         <div class="info-field">
           <p class="label">IP Address</p>
-          <p class="output">Abrayam</p>
+          <p class="output" id="user-ip-address">Abrayam</p>
         </div>
         <div class="vertical-line"></div>
         <div class="info-field">
           <p class="label">Location</p>
-          <p class="output">Abrayam</p>
+          <p class="output" id="user-location">Abrayam</p>
         </div>
         <div class="vertical-line"></div>
         <div class="info-field">
           <p class="label">Timezone</p>
-          <p class="output">UTC
+          <p class="output" id="user-timezone">UTC
             <!-- add offset value dynamically using the API -->
           </p>
         </div>
         <div class="vertical-line"></div>
         <div class="info-field">
           <p class="label">ISP</p>
-          <p class="output">Abrayam</p>
+          <p class="output" id="user-isp">Abrayam</p>
         </div>
       </div>
     </div>

@@ -1,6 +1,16 @@
+const ipAddress = document.getElementById("user-ip-address");
+const userLocation = document.getElementById("user-location");
+const timezone = document.getElementById("user-timezone");
+const isp = document.getElementById("user-isp");
+
+function getIpAddress() {
+    const inputVal = document.getElementById("ip-address-input").value;
+    ipAddress.innerText = inputVal;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-    const latitude = 344;
-    const longitude = 355;
+    // const latitude = 344;
+    // const longitude = 355;
 
     //set initial view of the map
     var mymap = L.map('mapid').setView([6.5244, 3.3792], 13);
@@ -8,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //change marker icon
     var mapIcon = L.icon({
         iconUrl: './images/icon-location.svg',
-        iconSize: [30, 40]
+        iconSize: [30, 38]
     });
     L.marker([6.5525, 3.3870], {icon: mapIcon}).addTo(mymap);
 
