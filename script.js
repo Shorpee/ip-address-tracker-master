@@ -4,22 +4,37 @@ const timezone = document.getElementById("user-timezone");
 const userIsp = document.getElementById("user-isp");
 const url = "https://geo.ipify.org/api/v1?apiKey=at_NSc7fE041qkOYaoyTMBfbZu4SyJT4&ipAddress="
 let resultFinal = {};
-
+let mapInitialized = false;
+let map;
+let marker;
 
 function getIpAddress() {
     const inputVal = document.getElementById("ip-address-input").value;
+    console.log(inputVal)
     fetch(`${url}+${inputVal}`)
         .then(response => response.json())
         .then(result => {
-            ipAddress.innerText = result.ip;
-            userLocation.innerText = result.location.city;
-            timezone.innerText = result.location.timezone;
-            userIsp.innerText = result.isp;
+            ipAddress.textContent = result.ip;
+            userLocation.textContent = result.location.city;
+            timezone.textContent = `UTC ${result.location.timezone}`;
+            userIsp.textContent = result.isp;
             resultFinal = {
                 lat: result.location.lat,
                 long: result.location.lng
             }
-            initMap(resultFinal.lat, resultFinal.long);
+
+            if (mapInitialized) {
+                console.log(map, marker)
+                setMap(map, marker, [resultFinal.lat, resultFinal.long]);
+
+                return;
+            }
+
+            let initializeMap = initMap(resultFinal.lat, resultFinal.long);
+            map = initializeMap.mymap;
+            marker = initializeMap.marker;
+            mapInitialized = true;
+            console.log(map, marker)
         })
 }
 
@@ -32,7 +47,7 @@ function initMap(lat, long) {
         iconUrl: './images/icon-location.svg',
         iconSize: [30, 38]
     });
-    L.marker([lat, long], { icon: mapIcon }).addTo(mymap);
+    let marker = L.marker([lat, long], { icon: mapIcon }).addTo(mymap);
 
     //set tileLayer for the map
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -42,6 +57,16 @@ function initMap(lat, long) {
         zoomOffset: -1,
         accessToken: 'pk.eyJ1Ijoic2hvcnBlZTIzIiwiYSI6ImNrcGc3dXJqcTAxcWsyb244bXhqdHd6NmIifQ.-dJep14NhquKkNfvx2lrBg'
     }).addTo(mymap);
+
+    return {mymap, marker};
+}
+
+function setMap (map, marker, coordinates) {
+    // console.log(coordinates);
+    map.setView(coordinates, 17);
+    marker.setLatLng(coordinates);
+    return {map, marker};
+
 }
 
 document.addEventListener("DOMContentLoaded", function () {
