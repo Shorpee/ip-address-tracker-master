@@ -20,8 +20,7 @@ function getIpAddress() {
         input_api = "&domain=" + inputVal;
 
     }else{
-
-        return console.error("Invalid Input");
+        input_api = "&ipAddress=";
     }
     
     // console.log(inputVal)
