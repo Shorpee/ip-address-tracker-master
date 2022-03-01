@@ -37,7 +37,7 @@ function getIpAddress() {
             }
 
             if (mapInitialized) {
-                console.log(map, marker)
+                // console.log(map, marker)
                 setMap(map, marker, [resultFinal.lat, resultFinal.long]);
 
                 return;
@@ -47,8 +47,17 @@ function getIpAddress() {
             map = initializeMap.mymap;
             marker = initializeMap.marker;
             mapInitialized = true;
-            console.log(map, marker)
+            // console.log(map, marker)
         })
+}
+
+document.onkeydown=function(e){
+    // console.log('in')
+    if(window.event.keyCode=='13'){
+        // console.log("enter!!");
+        getIpAddress();
+        event.preventDefault();
+    }
 }
 
 function initMap(lat, long) {
